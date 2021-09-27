@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geocode/geocode.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:weather_bloc_app/bloc/weather_bloc.dart';
-import 'package:weather_bloc_app/bloc/weather_states.dart';
+import 'package:weather_bloc_app/blocs/weather_bloc/weather_bloc.dart';
+import 'package:weather_bloc_app/blocs/weather_bloc/weather_states.dart';
+import 'package:weather_bloc_app/services/weather_repository.dart';
 
 class MainBody extends StatefulWidget {
   const MainBody({Key? key}) : super(key: key);
@@ -13,32 +14,6 @@ class MainBody extends StatefulWidget {
 }
 
 class _MainBodyState extends State<MainBody> {
-  // String _currentLocation = '';
-
-  // Future<String> getAddress() async {
-  //   var _latitudeCor;
-  //   var _longitude;
-  //   GeoCode geoCode = GeoCode();
-  //   Position? position = await Geolocator.getCurrentPosition();
-  //   setState(() {
-  //     _latitudeCor = position.latitude;
-  //     _longitude = position.longitude;
-  //   });
-  //   final coordinates = await geoCode.reverseGeocoding(
-  //       latitude: _latitudeCor!, longitude: _longitude!);
-  //   setState(() {
-  //     _currentLocation = coordinates.city.toString();
-  //   });
-  //   print('curLoc - $_currentLocation');
-  //   return _currentLocation;
-  // }
-
-  // @override
-  // void initState() {
-  //   getAddress();
-  //   super.initState();
-  // }
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<WeatherBloc, WeatherState>(builder: (context, state) {
@@ -64,7 +39,7 @@ class _MainBodyState extends State<MainBody> {
             Container(
               child: Icon(Icons.cloud),
             ),
-            Text('Gomel'),
+            Text(state.location.toString().toUpperCase()),
             Text(state.weather.mainPointers.temp.toString() +
                 ' °' +
                 ' | ' +

@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_bloc_app/bloc/weather_events.dart';
-import 'package:weather_bloc_app/bloc/weather_states.dart';
+import 'package:weather_bloc_app/blocs/weather_bloc/weather_events.dart';
+import 'package:weather_bloc_app/blocs/weather_bloc/weather_states.dart';
 import 'package:weather_bloc_app/services/weather_repository.dart';
 
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
@@ -13,7 +13,10 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       yield WeatherIsLoadingState();
       try {
         final loadedWeather = await weatherRepository.getFullWeather();
-        yield WeatherIsFetchedState(weather: loadedWeather);
+        Future.delayed(Duration(seconds: 1));
+        final currentLocation = await weatherRepository.getAddress();
+        yield WeatherIsFetchedState(
+            weather: loadedWeather, location: currentLocation);
         print(loadedWeather);
       } catch (_) {
         print(_);

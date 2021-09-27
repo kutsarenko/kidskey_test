@@ -6,8 +6,9 @@ class WeatherIsLoadingState extends WeatherState {}
 
 class WeatherIsFetchedState extends WeatherState {
   final weather;
+  final location;
 
-  WeatherIsFetchedState({required this.weather});
+  WeatherIsFetchedState({required this.weather, required this.location});
 }
 
 class WeatherErrorFetchState extends WeatherState {}
