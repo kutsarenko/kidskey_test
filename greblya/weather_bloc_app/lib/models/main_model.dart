@@ -1,15 +1,16 @@
-class MainPointers {
-  final double temp;
-  final int pressure;
-  final int humidity;
+import 'package:json_annotation/json_annotation.dart';
 
-  MainPointers(
-      {required this.temp, required this.pressure, required this.humidity});
+part 'main_model.g.dart';
 
-  factory MainPointers.fromJson(Map<String, dynamic> json) {
-    return MainPointers(
-        temp: json["temp"],
-        pressure: json["pressure"],
-        humidity: json["humidity"]);
-  }
+@JsonSerializable()
+class Main {
+  num? temp;
+  num? pressure;
+  num? humidity;
+
+  Main({this.temp, this.pressure, this.humidity});
+
+  factory Main.fromJson(Map<String, dynamic> json) => _$MainFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MainToJson(this);
 }

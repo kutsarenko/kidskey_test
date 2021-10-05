@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_bloc_app/utils/color.dart';
+import 'package:weather_bloc_app/UI/utils/color.dart';
 
 PreferredSizeWidget customAppBar(
     BuildContext context, String title, dynamic scaffoldKey) {

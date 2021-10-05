@@ -3,10 +3,10 @@ import 'package:weather_bloc_app/models/weather_description_model.dart';
 import 'package:weather_bloc_app/models/wind.dart';
 
 class WeatherModel {
-  final MainPointers mainPointers;
+  final Main mainPointers;
   final List<WeatherDescription> description;
-  final WindModel windModel;
-  final int visibility;
+  final Wind windModel;
+  final num visibility;
 
   WeatherModel(
       {required this.mainPointers,
@@ -20,9 +20,9 @@ class WeatherModel {
         list.map((e) => WeatherDescription.fromJson(e)).toList();
 
     return WeatherModel(
-        mainPointers: MainPointers.fromJson(json['main']),
+        mainPointers: Main.fromJson(json['main']),
         description: descriptionList,
-        windModel: WindModel.fromJson(json['wind']),
+        windModel: Wind.fromJson(json['wind']),
         visibility: json['visibility']);
   }
 }
