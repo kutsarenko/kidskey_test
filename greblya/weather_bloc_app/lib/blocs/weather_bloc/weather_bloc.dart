@@ -13,11 +13,12 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       yield WeatherIsLoadingState();
       try {
         final loadedWeather = await weatherRepository.getFullWeather();
-        Future.delayed(Duration(seconds: 1));
+        Future.delayed(Duration(seconds: 2));
         final currentLocation = await weatherRepository.getAddress();
         yield WeatherIsFetchedState(
             weather: loadedWeather, location: currentLocation);
-        print(loadedWeather);
+        print(
+            'loadedWeather - $loadedWeather, currentLocation - $currentLocation');
       } catch (_) {
         print(_);
         WeatherErrorFetchState();

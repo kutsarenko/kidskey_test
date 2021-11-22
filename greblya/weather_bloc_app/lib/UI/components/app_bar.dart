@@ -2,14 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:weather_bloc_app/UI/utils/color.dart';
 
 PreferredSizeWidget customAppBar(
-    BuildContext context, String title, dynamic scaffoldKey) {
+    bool isDetailed, BuildContext context, String title, dynamic scaffoldKey) {
   return PreferredSize(
-    preferredSize: Size.fromHeight(MediaQuery.of(context).size.height * 0.08),
+    preferredSize: Size.fromHeight(MediaQuery.of(context).size.height * 0.1),
     child: SafeArea(
       child: Column(
         children: [
           Row(
             children: [
+              if (isDetailed == true)
+                IconButton(
+                    icon: Icon(Icons.arrow_back),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    }),
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.07,

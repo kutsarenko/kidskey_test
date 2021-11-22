@@ -1,12 +1,16 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'weather_description_model.g.dart';
+
+@JsonSerializable()
 class WeatherDescription {
-  final String mainDescription;
+  String? main;
+  String? description;
 
-  WeatherDescription({required this.mainDescription});
+  WeatherDescription({this.main, this.description});
 
-  factory WeatherDescription.fromJson(Map<String, dynamic> json) {
-    // var list = json['description'] as List;
+  factory WeatherDescription.fromJson(Map<String, dynamic> json) =>
+      _$WeatherDescriptionFromJson(json);
 
-    // print('descList - ${descList.length}');
-    return WeatherDescription(mainDescription: json["main"]);
-  }
+  Map<String, dynamic> toJson() => _$WeatherDescriptionToJson(this);
 }

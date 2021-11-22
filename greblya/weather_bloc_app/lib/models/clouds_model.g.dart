@@ -8,7 +8,7 @@ part of 'clouds_model.dart';
 
 Clouds _$CloudsFromJson(Map<String, dynamic> json) {
   return Clouds(
-    all: json['all'] as String?,
+    all: json['all'] as int?,
   );
 }
 

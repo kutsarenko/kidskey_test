@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_bloc_app/UI/screens/home_page.dart';
 import 'package:weather_bloc_app/blocs/weather_bloc/weather_bloc.dart';
-import 'package:weather_bloc_app/screens/home_page.dart';
 import 'package:weather_bloc_app/services/weather_repository.dart';
 
 void main() {

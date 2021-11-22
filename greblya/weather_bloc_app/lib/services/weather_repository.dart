@@ -1,6 +1,6 @@
 import 'package:geocode/geocode.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:weather_bloc_app/models/weather_model.dart';
+import 'package:weather_bloc_app/models/server_response_model.dart';
 import 'package:weather_bloc_app/services/weather_model_api_provider.dart';
 
 class WeatherRepo {
@@ -21,7 +21,7 @@ class WeatherRepo {
 
   WeatherModelProvider _weatherProvider = WeatherModelProvider();
 
-  Future<WeatherModel> getFullWeather() async {
+  Future<ServerResponse> getFullWeather() async {
     return _weatherProvider.getweather(await getAddress());
   }
 }

@@ -8,7 +8,7 @@ part of 'wind_model.dart';
 
 Wind _$WindFromJson(Map<String, dynamic> json) {
   return Wind(
-    speed: json['speed'] as num,
+    speed: json['speed'] as num?,
   );
 }
 

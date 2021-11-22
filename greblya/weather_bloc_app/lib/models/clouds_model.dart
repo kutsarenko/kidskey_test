@@ -4,7 +4,7 @@ part 'clouds_model.g.dart';
 
 @JsonSerializable()
 class Clouds {
-  String? all;
+  int? all;
 
   Clouds({this.all});
 

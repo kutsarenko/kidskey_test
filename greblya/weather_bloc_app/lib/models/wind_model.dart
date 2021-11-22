@@ -4,9 +4,9 @@ part 'wind_model.g.dart';
 
 @JsonSerializable()
 class Wind {
-  num speed;
+  num? speed;
 
-  Wind({required this.speed});
+  Wind({this.speed});
 
   factory Wind.fromJson(Map<String, dynamic> json) => _$WindFromJson(json);
 
